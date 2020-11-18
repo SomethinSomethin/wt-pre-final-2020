@@ -14,6 +14,7 @@
 </head>
 <body>
     <div class="container" id="container">
+        <div class="row" id="row">
         <script>
             let requestURL = 'data.json'; 
             let request = new XMLHttpRequest(); 
@@ -27,18 +28,17 @@
             function dataReportStatus(data) { 
                 for (let i = 0; i < data.tracks.items.length; i++) {
                     var container = document.getElementById("container")
-                    var row = document.createElement("div");
+                    var row = document.getElementById("row")
                     var col = document.createElement("div");
                     var card = document.createElement("div");
                     var cardbody = document.createElement("div");
                     var image = document.createElement("img");
                     card.style.margin = "20px";
-                    card.style.width = "641px";
                     row.setAttribute("class", "row");
-                    col.setAttribute("class", "col-12 text-center");
+                    col.setAttribute("class", "col-4");
                     image.setAttribute("class", "card-img-top");
                     image.setAttribute("src", data.tracks.items[i].album.images[0].url)
-                    image.style.width = "640px";
+                    image.style.width = "100%";
                     card.setAttribute("class", "card");
                     cardbody.setAttribute("class", "card-body");
                     cardbody.innerHTML = "<p><b>" + data.tracks.items[i].album.name + "</b><br>"+ "Artist: " + data.tracks.items[i].artists[0].name + "<br>"
@@ -51,6 +51,7 @@
                 }
             }
         </script>
+        </div>
     </div>
 </body>
 </html>
